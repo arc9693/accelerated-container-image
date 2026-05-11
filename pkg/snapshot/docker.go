@@ -256,7 +256,7 @@ func (o *snapshotter) dockerContainerLayerMount(ctx context.Context,
 	initParentKey := parentInfo.Parent
 	if initParentKey == "" {
 		log.G(ctx).Warnf("Mounts: Docker container layer has no init parent, falling back to normal mount")
-		return o.normalOverlayMount(s), nil
+		return o.normalOverlayMount(s, snapshots.Info{}), nil
 	}
 
 	// Get image top layer info
