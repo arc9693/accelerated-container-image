@@ -164,7 +164,7 @@ func TestEnsureIDMappedLower_skipsWithoutRemapIDs(t *testing.T) {
 	}
 }
 
-func TestBasedOnBlockDeviceMount_omitsOverlayIdmapWhenLowerPreMapped(t *testing.T) {
+func TestOverlayOptions_omitIdmapWhenLowerPreMapped(t *testing.T) {
 	o := &snapshotter{
 		root:     t.TempDir(),
 		remapIDs: true,
