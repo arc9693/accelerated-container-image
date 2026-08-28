@@ -822,7 +822,7 @@ func (o *snapshotter) Mounts(ctx context.Context, key string) (_ []mount.Mount, 
 		// The container layer's parent is the init layer, which has init layer's parent as the image top layer
 		if o.runtimeType == "docker" && o.isDockerContainerLayer(info.Parent) {
 			log.G(ctx).Infof("Mounts: Docker container layer detected (key: %s, parent: %s)", key, info.Parent)
-			return o.dockerContainerLayerMount(ctx, parentInfo, s, parentID)
+			return o.dockerContainerLayerMount(ctx, parentInfo, s, parentID, info)
 		}
 
 		return o.normalOverlayMount(s, info), nil
